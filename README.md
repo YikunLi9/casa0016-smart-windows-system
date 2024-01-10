@@ -32,7 +32,7 @@ you need to install the dependencies below:
 
    | mmwave Radar | Ardunio Uno |
    | ------------ | ----------- |
-   | VCC          | 5v          |
+   | VCC          | 5V          |
    | GND          | GND         |
    | RX           | D2          |
    | TX           | D3          |
