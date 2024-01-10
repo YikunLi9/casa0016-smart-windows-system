@@ -13,7 +13,7 @@ In the rapidly evolving landscape of technology, the Smart Window Control System
 - Arduino Uno
 - Sound Sensor V1.6
 - DFRobot mmwave Radar
-- Servo
+- MG90S Servo
 - LCD Screen
 - Buttons
 
