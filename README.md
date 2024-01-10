@@ -66,7 +66,7 @@ you need to install the dependencies below:
 
 This is the basic logic of the system working (auto mode):
 
-<img src="D:\UCL\CASA0016\17047691691052.png" style="zoom: 67%;" />
+<img src="figures\17047691691052.png" style="zoom: 67%;" />
 
 If in manual mode, the system will only controlled by the button.
 
