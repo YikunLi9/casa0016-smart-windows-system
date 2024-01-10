@@ -46,6 +46,7 @@ void setup()
 
 void loop()
 {
+  // lcd display
   lcd.clear();
 
   if(isOpened){
@@ -75,6 +76,7 @@ void loop()
     lcd.print("auto");
   }
 
+  // read sound sensor
   long sum = 0;
   for(int i = 0; i < 32; i++){
     sum += analogRead(SoundSensor);
@@ -86,15 +88,19 @@ void loop()
   }else{
     isNoisy = false;
   }
+  // read mmwave radar
   int Flag  = sensor.readPresenceDetection();
   if(Flag == 0){
     isEmpty = true;
   }else{
     isEmpty = false;
   }
+
+  // adjust windows open and close according to noise and indoor status
   if(!isManual){
     if(isEmpty){
       if(!isOpened){
+        // guard algorithm
         if(millis() - guard > guard_time){
           servo.writeMicroseconds(1400);
           delay(500);
@@ -133,6 +139,7 @@ void loop()
     }
   }
 
+  // read button action
   if(digitalRead == HIGH){
     int time = millis();
     if(secondPress <= firstPress && time > firstPress){
@@ -140,9 +147,11 @@ void loop()
     }else if(secondPress < firstPress && firstPress > time){
       secondPress = time;
       if(secondPress - firstPress < 150){
+        // change the status
         isManual = !isManual;
       }else{
         firstPress = time;
+        // manually control
         if(isManual){
           if(isOpened){
             servo.writeMicroseconds(1600);
